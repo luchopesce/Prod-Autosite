@@ -1,0 +1,56 @@
+<form [formGroup]="miFormulario" (ngSubmit)="saveData()" novalidate>
+  <h3>Contacta con un asesor para más información</h3>
+  <label for="name"
+    ><p>Nombre y apellido <span>(obligatorio)</span></p>
+  </label>
+  <input formControlName="name" type="text" name="name" id="name" />
+  @if (miFormulario.get("name")?.errors && miFormulario.get("name")?.touched) {
+  <p class="error">El campo es requerido</p>
+  }
+  <label for="email"
+    ><p>Correo electrónico <span>(obligatorio)</span></p>
+  </label>
+  <input
+    formControlName="email"
+    placeholder="ejemplo@gmail.com"
+    type="email"
+    name="email"
+    id="email"
+  />
+  @if (miFormulario.get("email")?.errors && miFormulario.get("email")?.touched )
+  {
+  <p class="error">El campo es requerido</p>
+  }
+  <label for="phone"
+    ><p>Teléfono <span>(obligatorio)</span></p>
+  </label>
+  <input
+    formControlName="phone"
+    type="number"
+    placeholder="Numero sin el 0 ni 15"
+    name="phone"
+    id="phone"
+  />
+  @if (miFormulario.get("phone")?.errors && miFormulario.get("phone")?.touched)
+  {
+  <p class="error">El campo es requerido</p>
+  }
+  <label for="time"><p>Horario de contacto</p></label>
+  <select formControlName="time" name="time" id="time">
+    @for (hour of timeOptions; track $index) {
+    <option value="{{ hour }}">{{ hour }} hs</option>
+    }
+  </select>
+  <div class="submit-container">
+    <button
+      class="button-submit"
+      [disabled]="miFormulario.invalid || isLoading"
+      type="submit"
+    >
+      {{ isLoading ? "Enviando..." : "Enviar Mensaje" }}
+
+      @if (!isLoading) { <img src="../../../assets/send.svg" alt="send" />}
+    </button>
+    <p [ngClass]="{ disabled: !isSuccess }">¡Mensaje enviado con éxito!</p>
+  </div>
+</form>

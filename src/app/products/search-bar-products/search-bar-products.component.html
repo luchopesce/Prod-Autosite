@@ -1,0 +1,22 @@
+<form class="search-bar-container" action="">
+  <div class="input-container">
+    <img
+      (click)="changeFilterState()"
+      class="filter-svg"
+      src="../../../../assets/filter.svg"
+      alt=""
+    />
+    <input
+      #searchInput
+      type="text"
+      class="input-with-svg"
+      [placeholder]="
+        isVehicle
+          ? 'Escribí la marca, modelo del vehículo'
+          : 'Escribí la marca o nombre del repuesto'
+      "
+      (input)="sendSearchText($event)"
+    />
+    <img class="input-svg" src="../../../../assets/lupa.svg" alt="" />
+  </div>
+</form>

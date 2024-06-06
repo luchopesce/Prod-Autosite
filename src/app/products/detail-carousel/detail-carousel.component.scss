@@ -1,0 +1,104 @@
+.detailCarousel-container {
+  width: 757px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+.image-container {
+  width: 100%;
+  height: 421px;
+}
+.prevImage-container {
+  width: 100%;
+  gap: 5px;
+  flex-wrap: wrap;
+  display: flex;
+}
+.singleImage-prev {
+  cursor: pointer;
+}
+.img-big {
+  width: 757px;
+  height: 421px;
+  display: block;
+  border-radius: 5px;
+}
+.image-wrapper {
+  position: relative; // Hace que los elementos hijos con posición absoluta se posicionen en relación a este contenedor
+  display: inline-block; // Asegura que el contenedor se ajuste al tamaño de la imagen
+}
+.nav-button {
+  // Estilos para los botones de navegación
+  position: absolute; // Posiciona los botones absolutamente dentro del contenedor
+  background-color: #f0f0f0; // Color de fondo semi-transparente para los botones
+  border: none; // Elimina el borde predeterminado de los botones
+  padding: 10px; // Espaciado interno del botón
+  cursor: pointer; // Cambia el cursor al pasar el mouse sobre el botón
+  color: white; // Color del texto de los botones
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+}
+.nav-button:active {
+  background-color: #f0f0f039;
+}
+.nav-button.prev {
+  left: 10px; // Posiciona el botón "prev" a la izquierda
+  top: 50%; // Centra verticalmente el botón "prev"
+  transform: translateY(
+    -50%
+  ); // Ajuste para centrar perfectamente verticalmente
+}
+
+.nav-button.next {
+  right: 10px; // Posiciona el botón "next" a la derecha
+  top: 50%; // Centra verticalmente el botón "next"
+  transform: translateY(
+    -50%
+  ); // Ajuste para centrar perfectamente verticalmente
+}
+.mat-icon {
+  color: black;
+}
+@media (max-width: 600px) {
+  .nav-button {
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+  }
+  .detailCarousel-container {
+    width: 335px;
+  }
+  .image-container {
+    width: 335px;
+    height: 183px;
+  }
+  .img-big {
+    width: 335px;
+    height: 183px;
+  }
+  .prevImage-container {
+    width: 100%;
+    gap: 8px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Para pantallas medianas (entre 600px y 900px de ancho) */
+@media (min-width: 600px) and (max-width: 900px) {
+  .detailCarousel-container {
+    width: 648px;
+  }
+  .img-big {
+    width: 100%;
+  }
+  .prevImage-container {
+    width: 100%;
+    gap: 8px;
+    display: flex;
+  }
+}

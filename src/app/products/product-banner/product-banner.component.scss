@@ -1,0 +1,78 @@
+.vehicles-portrait {
+  height: 187px;
+  display: flex;
+  background-image: url("../../../assets/vehicle-portrait.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-position: center;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  h2 {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -2%;
+
+    color: white;
+  }
+}
+.autopart-portrait {
+  height: 187px;
+  display: flex;
+  background-image: url("../../../assets/auto-parts-portrait.jpg");
+  height: 187px;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-position: center;
+
+  align-items: center;
+  justify-content: center;
+  h2 {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -2%;
+    color: white;
+  }
+}
+
+@media (max-width: 600px) {
+  .vehicles-portrait {
+    h2 {
+      font-size: 24px;
+      line-height: 32px;
+      padding: 3.875rem;
+      font-weight: 500;
+    }
+  }
+  .autopart-portrait {
+    h2 {
+      font-size: 24px;
+      line-height: 32px;
+      padding: 3.875rem;
+    }
+  }
+}
+
+/* Para pantallas medianas (entre 600px y 900px de ancho) */
+@media (min-width: 600px) and (max-width: 900px) {
+  .vehicles-portrait {
+    h2 {
+      font-size: 40px;
+      line-height: 50px;
+      padding: 3.875rem;
+    }
+  }
+  .autopart-portrait {
+    h2 {
+      font-size: 40px;
+      line-height: 50px;
+      padding: 3.875rem;
+    }
+  }
+}

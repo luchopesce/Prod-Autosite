@@ -1,0 +1,136 @@
+.card-container {
+  padding: 24px 32px 0px 32px;
+  display: flex;
+  width: 100%;
+
+  border-bottom: 2px solid #e7e7e7;
+}
+button {
+  cursor: pointer;
+}
+button:active {
+  background-color: gray;
+}
+img.item-image {
+  width: 40%;
+  height: 80%;
+  object-fit: contain;
+  margin-right: 16px;
+}
+.cart-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: -webkit-fill-available;
+}
+.cart-controlers {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 0 10px;
+}
+p {
+  padding: 9px 10px 9px 10px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
+  color: #00000099;
+}
+h3 {
+  text-align: justify;
+  margin: 10px;
+}
+span {
+  padding: 15px;
+}
+.item-header {
+  display: flex;
+  flex-direction: column;
+}
+.cart-tittle {
+  display: flex;
+  width: 100%;
+  display: flex;
+}
+.delete-button {
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+h2 {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: left;
+}
+h4 {
+  margin: 0 10px;
+
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.small-item-image {
+  display: none;
+}
+.controler {
+  background-color: black;
+  width: 21px;
+  height: 31px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  padding: 0;
+  border-radius: 0;
+}
+.cart-tittle {
+  justify-content: space-between;
+  padding: 0 10px;
+}
+img.item-image {
+  width: 42%;
+  height: 121px;
+}
+
+@media (max-width: 600px) {
+  img.item-image {
+    width: 42%;
+  }
+  .cart-tittle {
+    padding: 0;
+  }
+  .item-image {
+    display: none;
+  }
+  .card-container {
+    flex-direction: column;
+    height: auto;
+  }
+  p {
+    padding: 0;
+    margin-bottom: 16px;
+  }
+  .cart-info {
+    width: 100%;
+  }
+  .small-item-image {
+    display: block;
+    width: 211px;
+    height: 121px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1500px) {
+  img.item-image {
+    width: 42%;
+  }
+  .card-container {
+    height: auto;
+  }
+}

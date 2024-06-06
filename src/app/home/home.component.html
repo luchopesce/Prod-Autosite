@@ -1,0 +1,18 @@
+<div class="home-container">
+  <div class="portrait-content">
+    <app-carousel-home />
+  </div>
+
+  <div class="search-bar-container">
+    <h3 class="text-search-bar">Encontrá el vehículo que estás buscando</h3>
+
+    <app-search-bar [products]="cars" />
+  </div>
+  <app-carousel [slides]="cars" />
+  <button (click)="exploreCatalog()" class="more-button">
+    Explorar catálogo
+  </button>
+  <app-banner />
+  <h3 class="text-carousel">Vehículos próximos a ingresar</h3>
+  <app-carousel [slides]="newCars" />
+</div>

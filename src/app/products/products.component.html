@@ -1,0 +1,64 @@
+<div>
+  <app-product-banner />
+
+  <div class="product-container">
+    <div class="filter">
+      @if (isVehicle) {
+      <app-product-filters
+        [productsFiltered]="
+          productCard
+            | vehicleFilter : filtersToApply
+            | filter : searchText : ['marca', 'model']
+        "
+        [isVehicle]="isVehicle"
+      />
+      }@else {
+      <app-product-filters
+        [productsFiltered]="
+          productCard
+            | autoPartFilter : filtersToApply
+            | filter : searchText : ['tittle', 'marca']
+        "
+        [isVehicle]="isVehicle"
+      />
+      }
+    </div>
+    <div class="products-container">
+      <app-search-bar-products
+        [isVehicle]="isVehicle"
+        (searchValue)="onSearch($event)"
+      />
+
+      @if (isVehicle) {
+      <div class="card-container">
+        @for (product of productCard | vehicleFilter:filtersToApply
+        |filter:searchText:["marca","model"]; track $index) {
+        <app-card [productCard]="product" />
+        }
+      </div>
+      } @else {
+
+      <div class="card-container">
+        @for (product of productCard | autoPartFilter:filtersToApply |
+        filter:searchText:["marca","tittle"]; track $index) {
+        <app-card [productCard]="product" />
+        }
+      </div>
+      }
+    </div>
+  </div>
+
+  <div
+    [ngClass]="{
+      'open-filter-popup': !filterState
+    }"
+    class="filter-popup"
+  >
+    <div>
+      <app-product-filters
+        [productsFiltered]="productCard"
+        [isVehicle]="isVehicle"
+      />
+    </div>
+  </div>
+</div>

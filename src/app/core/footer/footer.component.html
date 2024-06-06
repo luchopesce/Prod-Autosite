@@ -1,0 +1,45 @@
+<div class="footer-container">
+  <img class="logo-img" [src]="logo" alt="logo" />
+  <div class="navigate-links">
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active">Inicio</a></li>
+      <li>
+        <a routerLink="/products/vehicles" routerLinkActive="active"
+          >Vehículos</a
+        >
+      </li>
+      <li>
+        <a routerLink="/products/auto-parts" routerLinkActive="active"
+          >Repuestos</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="footer-contact">
+    <h4>Contacto</h4>
+    <ul>
+      <li>
+        <img src="../../../assets/phone.svg" alt="phone" />
+        <p>{{ information.Whatsapp }}</p>
+      </li>
+      <li>
+        <img src="../../../assets/email.svg" alt="email" />
+        <p>{{ information.Email }}</p>
+      </li>
+      <li>
+        <img src="../../../assets/time.svg" alt="time" />
+        <p>
+          Horarios de atención <br />
+          <span>{{ information.Horario }}</span>
+        </p>
+      </li>
+      <li>
+        <img src="../../../assets/location.svg" alt="location" />
+        <p>
+          123, Rev Avenida Libertador,<br />
+          Córdoba Argentina
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>

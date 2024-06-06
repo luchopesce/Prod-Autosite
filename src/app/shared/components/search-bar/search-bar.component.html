@@ -1,0 +1,29 @@
+<form class="search-bar-container-button" action="">
+  <div class="input-container-button">
+    <input
+      [formControl]="control"
+      [matAutocomplete]="auto"
+      type="text"
+      class="input-with-svg-button"
+      placeholder="Escribí la marca, modelo del vehículo"
+    />
+    <img class="input-svg" src="../../../../assets/lupa.svg" alt="" />
+  </div>
+  <mat-autocomplete #auto="matAutocomplete">
+    @for (product of filteredProducts | async; track $index) {
+    <mat-option [value]="product.marca">
+      <div (click)="goToDetail(product)">
+        <img
+          alt=""
+          class="example-option-img"
+          [src]="product.img"
+          height="25"
+        />
+        <span>Marca: {{ product.marca }}</span> |
+        <small>Kilometros: {{ product.kilometraje }}</small>
+      </div>
+    </mat-option>
+    }
+  </mat-autocomplete>
+  <button (click)="search()" class="search-button">Buscar</button>
+</form>

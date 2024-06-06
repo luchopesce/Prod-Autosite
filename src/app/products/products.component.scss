@@ -1,0 +1,105 @@
+.product-container {
+  display: flex;
+  width: 100%;
+
+  padding: 0 60px;
+}
+.card-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(333px, 1fr));
+}
+.filter {
+  margin-top: 64px;
+  width: 23%;
+  height: 880px;
+}
+.products-container {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+
+  padding: 5px;
+  margin-left: 32px;
+}
+.filter-popup {
+  position: fixed;
+  z-index: 60;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.433);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  transition: all 1.2s ease-in-out;
+  transform: translateY(0%);
+
+  div {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+  }
+}
+.open-filter-popup {
+  transform: translateY(100%);
+}
+
+app-search-bar {
+  width: 100%;
+  margin: 64px auto 32px auto;
+}
+/* Para pantallas pequeñas (menos de 600px de ancho) */
+@media (max-width: 700px) {
+  .filter {
+    display: none;
+  }
+  app-search-bar {
+    width: auto;
+  }
+  form {
+    padding: 0 60px;
+  }
+  .example-viewport {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+  }
+
+  .products-container {
+    width: 100%;
+    padding: 0;
+    margin-left: 0;
+  }
+  .product-container {
+    padding: 0 31px;
+  }
+}
+
+/* Para pantallas medianas (entre 600px y 900px de ancho) */
+@media (min-width: 700px) and (max-width: 900px) {
+  .filter {
+    display: none;
+  }
+
+  .products-container {
+    width: 100%;
+    padding: 0;
+    margin-left: 0;
+  }
+  .product-container {
+    padding: 0 31px;
+  }
+  app-search-bar {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr); // 3 columnas para pantallas medianas
+  }
+}

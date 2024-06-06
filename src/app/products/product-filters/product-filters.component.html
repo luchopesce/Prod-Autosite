@@ -1,0 +1,150 @@
+<form [formGroup]="miFormulario">
+  <div class="filter-tittle">
+    <p>Filtrado por:</p>
+    <button (click)="resetForm()">Limpiar filtros</button>
+  </div>
+
+  <div class="filter-container">
+    <div class="filter-list">
+      @for (key of getFilterToShowKeys(); track $index) { @for (filter of
+      filterToShow[key]; track $index) {
+      <div>
+        <p>{{ filter }}</p>
+        <img
+          (click)="removeValueFromFormArray(key, filter)"
+          src="../../../assets/close.svg"
+          alt=""
+        />
+      </div>
+      } }
+    </div>
+    <p class="filter-results">
+      {{ productsFiltered.length }} Resultados filtrados
+    </p>
+  </div>
+
+  <div
+    [ngClass]="{ disabled: !isVehicle, 'condicion-container': isVehicle }"
+    class="condicion-container"
+  >
+    <p>Condición</p>
+    <div class="buttons-condicion">
+      <button
+        [ngClass]="{ slected: condicion === '0KM' }"
+        (click)="setCondicion('0KM')"
+      >
+        0KM
+      </button>
+      <button
+        [ngClass]="{ slected: condicion === 'Usado' }"
+        (click)="setCondicion('Usado')"
+      >
+        Usado
+      </button>
+    </div>
+  </div>
+  <div>
+    <label for="tipo"
+      ><p>{{ isVehicle ? "Tipo de vehículo" : "Tipo" }}</p></label
+    >
+    <select
+      (change)="addValueToFormArray('tipo', $event)"
+      name="tipo"
+      id="tipo"
+    >
+      <option value="">Todas</option>
+      @for (tipo of filters.tipos.sort(); track $index) {
+      <option [value]="tipo">{{ tipo }}</option>
+      }
+    </select>
+  </div>
+  <div>
+    <label for="marca"><p>Marca</p></label>
+    <select
+      (change)="addValueToFormArray('marca', $event)"
+      name="marca"
+      id="marca"
+    >
+      <option value="">Todas</option>
+      @for (marca of filters.marcas.sort(); track $index) {
+      <option [value]="marca">{{ marca }}</option>
+      }
+    </select>
+  </div>
+  <div [ngClass]="{ disabled: !isVehicle }">
+    <label for="anio"><p>Año</p></label>
+    <select
+      (change)="addValueToFormArray('anio', $event)"
+      name="anio"
+      id="anio"
+    >
+      <option value="">Todas</option>
+      @for (anio of filters.anios.sort().reverse(); track $index) {
+      <option [value]="anio">{{ anio }}</option>
+      }
+    </select>
+  </div>
+
+  <div [ngClass]="{ disabled: isVehicle }">
+    <label for="familia"><p>Familia</p></label>
+    <select
+      (change)="addValueToFormArray('familia', $event)"
+      name="familia"
+      id="familia"
+    >
+      <option value="">Todas</option>
+      @for (familia of filters.familias; track $index) {
+      <option [value]="familia">{{ familia }}</option>
+      }
+    </select>
+  </div>
+  <div [ngClass]="{ disabled: !isVehicle }">
+    <label for="combustible"><p>Combustible</p></label>
+    <select
+      (change)="addValueToFormArray('combustible', $event)"
+      name="combustible"
+      id="combustible"
+    >
+      <option value="">Todas</option>
+      @for (combustible of filters.combustibles; track $index) {
+      <option [value]="combustible">{{ combustible }}</option>
+      }
+    </select>
+  </div>
+  <div [ngClass]="{ disabled: !isVehicle }">
+    <p>Kilómetros</p>
+    <mat-slider
+      class="example-margin"
+      [max]="maxKmsToSelect"
+      [step]="1"
+      [min]="minKmsToSelect"
+    >
+      <input formControlName="kmsMin" matSliderStartThumb #sliderKmsMin />
+      <input formControlName="kmsMax" matSliderEndThumb #sliderKmsMax />
+    </mat-slider>
+    <p>
+      <span>Rango:</span> {{ formatNumber(sliderKmsMin.value) }} -
+      {{ formatNumber(sliderKmsMax.value) }}
+    </p>
+  </div>
+  <div [ngClass]="{ disabled: !isVehicle }">
+    <p>Precio</p>
+    <mat-slider
+      class="example-margin"
+      [max]="maxPriceToSelect"
+      [step]="1"
+      [min]="minPriceToSelect"
+    >
+      <input formControlName="priceMin" matSliderStartThumb #sliderPriceMin />
+      <input formControlName="priceMax" matSliderEndThumb #sliderPriceMax />
+    </mat-slider>
+    <p>
+      <span>Rango:</span> {{ formatNumber(sliderPriceMin.value) }} -
+      {{ formatNumber(sliderPriceMax.value) }}
+    </p>
+  </div>
+  <div class="buttons-container" [ngClass]="{ disabled: !isOpen }">
+    <button (click)="saveData()">Aplicar</button>
+    <button (click)="closeFilters()" class="cancel-button">Cancelar</button>
+  </div>
+</form>

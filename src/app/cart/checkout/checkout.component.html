@@ -1,0 +1,100 @@
+<div
+  [ngClass]="{
+    'checkout-container': checkoutStatus,
+    'not-visible': !checkoutStatus
+  }"
+  class="checkout-container"
+>
+  <form
+    class="checkout-content"
+    [formGroup]="miFormulario"
+    (ngSubmit)="saveData()"
+    novalidate
+  >
+    <h3>Generación de remito</h3>
+    <p class="sub-tittle">
+      A continuacion deberas completar los campos solicitados, para completar tu
+      orden de compra.
+    </p>
+    <label for="name"
+      ><p>Nombre y apellido / Razón social <span>(obligatorio)</span></p>
+    </label>
+    <input formControlName="name" type="text" name="name" id="name" />
+    @if (miFormulario.get("name")?.errors && miFormulario.get("name")?.touched)
+    {
+    <p class="error">El campo es requerido</p>
+    }
+    <label for="dni-cuit"
+      ><p>DNI / CUIT <span>(obligatorio)</span></p>
+    </label>
+    <input
+      formControlName="dni-cuit"
+      type="text"
+      placeholder="Sin guiones"
+      name="dni-cuit"
+      id="dni-cuit"
+    />
+    @if (miFormulario.get("dni-cuit")?.errors &&
+    miFormulario.get("dni-cuit")?.touched) {
+    <p class="error">El campo debe tener entre 8 y 11 caracteres numéricos</p>
+    }
+    <label for="email"
+      ><p>Correo electrónico <span>(obligatorio)</span></p>
+    </label>
+    <input
+      formControlName="email"
+      placeholder="ejemplo@gmail.com"
+      type="email"
+      name="email"
+      id="email"
+    />
+    @if (miFormulario.get("email")?.errors && miFormulario.get("email")?.touched
+    ) {
+    <p class="error">El campo es requerido</p>
+    }
+    <label for="phone"
+      ><p>Numero de teléfono <span>(obligatorio)</span></p>
+    </label>
+    <input
+      formControlName="phone"
+      type="number"
+      placeholder="Numero sin el 0 ni 15"
+      name="phone"
+      id="phone"
+    />
+    @if (miFormulario.get("phone")?.errors &&
+    miFormulario.get("phone")?.touched) {
+    <p class="error">El campo es requerido</p>
+    }
+    <re-captcha
+      siteKey="6LfmN98pAAAAAPds9N-YACu_K2iVcQ2QsaihXCn8"
+      (resolved)="resolved($event!)"
+    >
+    </re-captcha>
+    <p
+      *ngIf="
+        miFormulario.get('recaptcha')?.errors &&
+        miFormulario.get('recaptcha')?.touched
+      "
+      class="error"
+    >
+      Captcha es requerido
+    </p>
+    <div class="checkout-buttons">
+      <button
+        type="button"
+        [disabled]="miFormulario.invalid || isLoading || !captchaResolved"
+        type="submit"
+      >
+        Completar compra
+      </button>
+      <button
+        type="button"
+        class="close-button"
+        (click)="changeCheckoutState()"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>

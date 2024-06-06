@@ -1,0 +1,278 @@
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  padding: 60px;
+
+  align-items: center;
+}
+button {
+  cursor: pointer;
+}
+button:active {
+  background-color: white;
+}
+.top-detail {
+  width: 100%;
+  height: auto;
+  justify-content: center;
+
+  display: flex;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+.not-visible {
+  display: none;
+}
+
+.bottom-detail {
+  width: 100%;
+
+  height: 554px;
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+.info-container {
+  padding: 32px;
+}
+.button-text {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  width: 251px;
+  justify-content: center;
+  background-color: #5dc1b9;
+  height: 48px;
+  border-radius: 4px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+}
+.info {
+  height: 44px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  border-style: none;
+  color: #000;
+  border-radius: 4px;
+  background-color: #d1f6f0;
+  line-height: 24px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.extra-info {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.location {
+  height: 96px;
+  border-top: 1px solid #d9d9d9; /* Estilo, ancho y color del borde superior */
+  border-bottom: 1px solid #d9d9d9; /* Estilo, ancho y color del borde inferior */
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.location-container {
+  background-color: #f8f9fc;
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+aside {
+  width: 531px;
+  height: 413px;
+}
+.description-container {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+.from-container {
+  height: 100%;
+}
+
+.data-sheet {
+  width: 100%;
+  height: 288px;
+  display: flex;
+  flex-direction: column;
+  margin: 31px 0px 31px 0px;
+}
+.data-tittle {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  padding: 8px 0px 8px 0px;
+}
+
+.data-sheet-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10%;
+}
+.data {
+  width: 40%;
+  height: 68px;
+  border-bottom: 1px solid #d9d9d9;
+  margin-top: 24px;
+
+  h6 {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+  }
+  p {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    margin-top: 8px;
+  }
+}
+.autopart {
+  justify-content: center;
+}
+.model-info {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 50px;
+  text-align: left;
+  color: #00000099;
+}
+.stock-data {
+  margin: 0 0 16px;
+
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+.price-number {
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 50px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.related-vehicles-text {
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin: 64px;
+}
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+.related-vehicles {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Para pantallas pequeñas (menos de 600px de ancho) */
+@media (max-width: 600px) {
+  h3.related-vehicles-text {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    text-align: center;
+  }
+  .detail-container {
+    padding: 20px;
+  }
+  .top-detail {
+    align-items: center;
+    flex-direction: column;
+  }
+  .description-container {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .button-text {
+    align-self: self-start;
+  }
+  .buttons-container {
+    flex-direction: column;
+  }
+  .bottom-detail {
+    flex-direction: column;
+    height: auto;
+    gap: 0;
+    margin-top: 0;
+  }
+  .info-container {
+    display: flex;
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+    padding: 0;
+  }
+  .from-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Para pantallas medianas (entre 600px y 900px de ancho) */
+@media (min-width: 600px) and (max-width: 900px) {
+  .top-detail {
+    align-items: center;
+    flex-direction: column;
+  }
+  .description-container {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .button-text {
+    align-self: self-start;
+  }
+  .bottom-detail {
+    flex-direction: column;
+    height: auto;
+    gap: 0;
+    margin-top: 0;
+  }
+  .data-sheet {
+    margin: 31px 0 0 0;
+  }
+  .info-container {
+    display: flex;
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+  }
+  .from-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

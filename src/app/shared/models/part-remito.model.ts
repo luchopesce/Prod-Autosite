@@ -1,0 +1,34 @@
+export interface PartRemitoModel {
+  descripcion: string;
+  precio_oferta: number;
+  precio_costo_anterior: number;
+  codigo: string;
+  costo_campana: number;
+  ultimo_precio_venta: number;
+  descuento: string;
+  tasa_iva_id: number;
+  deposito: string;
+  costo_oferta: number;
+  origen: string;
+  precio_sin_iva: number;
+  tipo_repuesto: string;
+  cotizacion: number;
+  tasa_iva: number;
+  descuento_porcentaje: number;
+  moneda: number;
+  ultimo_precio_costo: number;
+  respuesto_id: number;
+  stock: number;
+  precio_campana: number;
+  isConsultar: boolean;
+  ubicacion: string;
+  costo: number;
+  repuesto: string;
+  descuento_cliente: number;
+  cantidad: number;
+  depositoCodigo: string;
+  precio_unitario: number;
+  precio_unitario_descuento: number;
+  subtotal: number;
+  subtotal_descuento: number;
+}

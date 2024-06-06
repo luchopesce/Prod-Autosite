@@ -1,0 +1,32 @@
+<div class="card-container">
+  <img
+    class="item-image"
+    mat-card-md-image
+    [src]="image || cartItem.product.img"
+    alt="Image of a Shiba Inu"
+  />
+  <div class="cart-info">
+    <div class="item-header">
+      <div class="cart-tittle">
+        <h2 class="item-tittle">{{ cartItem.product.tittle }}</h2>
+        <button (click)="deleteProduct()" class="delete-button">
+          <img src="../../../assets/trash.svg" alt="trash" />
+        </button>
+      </div>
+      <p>Modelo: {{ cartItem.product.model }}</p>
+      <img
+        class="small-item-image"
+        mat-card-md-image
+        [src]="image || cartItem.product.img"
+        alt="Image of a Shiba Inu"
+      />
+    </div>
+    <h4>CANTIDAD:</h4>
+    <div class="cart-controlers">
+      <button (click)="subtractQuantity()" class="controler">-</button>
+      <span>{{ cartItem.quantity }}</span>
+      <button (click)="addQuantity()" class="controler">+</button>
+    </div>
+    <h3>PRECIO: ${{ cartItem.product.priceNumber }}</h3>
+  </div>
+</div>

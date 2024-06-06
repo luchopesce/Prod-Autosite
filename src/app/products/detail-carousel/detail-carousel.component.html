@@ -1,0 +1,38 @@
+<div class="detailCarousel-container">
+  <div class="image-container">
+    <div class="image-wrapper">
+      <img class="img-big" [src]="imageToShow" alt="" />
+      <button
+        [disabled]="controlDisabled"
+        class="nav-button prev"
+        (click)="prevImage()"
+      >
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="arrow_back_ios
+        "
+        ></mat-icon>
+      </button>
+      <button
+        [disabled]="controlDisabled"
+        class="nav-button next"
+        (click)="nextImage()"
+      >
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="arrow_forward_ios
+      "
+        ></mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="prevImage-container">
+    @for (image of images; track $index) {
+    <div class="singleImage-prev" (click)="setImage(image, $index)">
+      <img [src]="image" alt="" width="80" height="80" />
+    </div>
+    }
+  </div>
+</div>
