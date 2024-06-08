@@ -1,0 +1,1 @@
+import{D as a,H as i}from"./chunk-CWS7CC46.js";import{Y as o,fa as n}from"./chunk-OPQ4FWMC.js";var A=(()=>{let t=class t{};t.\u0275fac=function(d){return new(d||t)},t.\u0275mod=n({type:t}),t.\u0275inj=o({imports:[a,i,a]});let e=t;return e})();export{A as a};
