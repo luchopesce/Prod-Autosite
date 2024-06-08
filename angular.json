@@ -93,6 +93,9 @@
               "node_modules/slick-carousel/slick/slick.min.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
